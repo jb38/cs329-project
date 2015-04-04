@@ -1,0 +1,7 @@
+DisplayName,EndStationCode,InternalDestination1,InternalDestination2,LineCode,StartStationCode
+Green,E10,,,GR,F11
+Blue,G05,,,BL,J03
+Silver,G05,,,SV,N06
+Red,B11,A11,B08,RD,A15
+Orange,D13,,,OR,K08
+Yellow,E06,E01,,YL,C15
