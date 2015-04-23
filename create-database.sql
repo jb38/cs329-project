@@ -25,15 +25,15 @@ DROP TABLE IF EXISTS driver;
 
 -- create tables with constraints
 CREATE TABLE driver (
-   id         INTEGER  NOT NULL  AUTO_INCREMENT
-  ,name       VARCHAR  NOT NULL
-  ,hire_date  DATE     NOT NULL
+   id         INTEGER       NOT NULL  AUTO_INCREMENT
+  ,name       VARCHAR(255)  NOT NULL
+  ,hire_date  DATE          NOT NULL
   ,CONSTRAINT PRIMARY KEY (id)
 );
 
 CREATE TABLE vehicle_type (
-   id           INTEGER  NOT NULL  AUTO_INCREMENT
-  ,description  VARCHAR  NOT NULL
+   id           INTEGER       NOT NULL  AUTO_INCREMENT
+  ,description  VARCHAR(255)  NOT NULL
   ,CONSTRAINT PRIMARY KEY (id)
 );
 
@@ -74,9 +74,9 @@ CREATE TABLE involved_in (
 );
 
 CREATE TABLE stop (
-   id            INTEGER      NOT NULL  AUTO_INCREMENT
-  ,name          VARCHAR      NOT NULL
-  ,vehicle_type  INTEGER      NOT NULL
+   id            INTEGER       NOT NULL  AUTO_INCREMENT
+  ,name          VARCHAR(255)  NOT NULL
+  ,vehicle_type  INTEGER       NOT NULL
   ,latitude      DOUBLE(8,6)
   ,longitude     DOUBLE(9,6)
   ,CONSTRAINT PRIMARY KEY (id)
@@ -84,29 +84,29 @@ CREATE TABLE stop (
 );
 
 CREATE TABLE line (
-   id    INTEGER  NOT NULL  AUTO_INCREMENT
-  ,name  VARCHAR  NOT NULL
-  ,CONSTRAINT PRIMARY KEY
+   id    INTEGER       NOT NULL  AUTO_INCREMENT
+  ,name  VARCHAR(255)  NOT NULL
+  ,CONSTRAINT PRIMARY KEY (id)
 );
 
 CREATE TABLE line_stop (
-   line_id  INTEGER  NOT NULL
-  ,stop_id  INTEGER  NOT NULL
-  ,order    INTEGER  NOT NULL
+   line_id     INTEGER  NOT NULL
+  ,stop_id     INTEGER  NOT NULL
+  ,line_order  INTEGER  NOT NULL
   ,CONSTRAINT PRIMARY KEY (line_id, stop_id)
   ,CONSTRAINT FOREIGN KEY (line_id) REFERENCES line (id)
   ,CONSTRAINT FOREIGN KEY (stop_id) REFERENCES stop (id)
-  ,CONSTRAINT UNIQUE KEY (line_id, stop_id, order)
+  ,CONSTRAINT UNIQUE KEY (line_id, stop_id, line_order)
 );
 
 CREATE TABLE rider (
-   id    INTEGER  NOT NULL  AUTO_INCREMENT
-  ,name  VARCHAR
+   id    INTEGER       NOT NULL  AUTO_INCREMENT
+  ,name  VARCHAR(255)
   ,CONSTRAINT PRIMARY KEY (id)
 );
 
 CREATE TABLE trip (
-   id              INTEGER        NOT NULL  AUT_INCREMENT
+   id              INTEGER        NOT NULL  AUTO_INCREMENT
   ,rider_id        INTEGER        NOT NULL
   ,entry_datetime  DATETIME       NOT NULL
   ,exit_datetime   DATETIME
