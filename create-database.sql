@@ -316,10 +316,10 @@ INSERT INTO operates (vehicle_id, driver_id, date) VALUES (33, 22, '2015-04-03')
 INSERT INTO operates (vehicle_id, driver_id, date) VALUES (48, 23, '2015-04-03');
 INSERT INTO operates (vehicle_id, driver_id, date) VALUES (1, 24, '2015-04-03');
 
-safety_incident;
-involved_in;
-stop;
-line;
-line_stop;
-rider;
-trip;
+--safety_incident;
+--involved_in;
+--stop;
+--line;
+--line_stop;
+--rider;
+--trip;
