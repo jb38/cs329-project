@@ -206,7 +206,7 @@ INSERT INTO vehicle (capacity, type) VALUES (43, 2);
 INSERT INTO vehicle (capacity, type) VALUES (48, 2);
 INSERT INTO vehicle (capacity, type) VALUES (40, 2);
 INSERT INTO vehicle (capacity, type) VALUES (44, 1);
-INSERT INTO vehicle (capacity, type) VALUES (43, 1);
+INSERT INTO vehicle (capacity, type) VALUES (43, 2);
 INSERT INTO vehicle (capacity, type) VALUES (50, 1);
 INSERT INTO vehicle (capacity, type) VALUES (48, 2);
 INSERT INTO vehicle (capacity, type) VALUES (43, 2);
@@ -316,9 +316,15 @@ INSERT INTO operates (vehicle_id, driver_id, date) VALUES (33, 22, '2015-04-03')
 INSERT INTO operates (vehicle_id, driver_id, date) VALUES (48, 23, '2015-04-03');
 INSERT INTO operates (vehicle_id, driver_id, date) VALUES (1, 24, '2015-04-03');
 
--- TODO safety_incident
+-- TODO safety_incident (do bus stops first)
+-- '2015-04-01', 38.9843936603, -77.0941291922
+-- '2015-04-02', 38.9843936603, -77.0941291922
+-- '2015-04-03', 38.9843936603, -77.0941291922
 
 -- TODO involved_in
+insert into involved_in (vehicle_id, incident_id, at_fault) values (37, 1, TRUE);
+insert into involved_in (vehicle_id, incident_id, at_fault) values (45, 2, TRUE);
+insert into involved_in (vehicle_id, incident_id, at_fault) values (77, 3, TRUE);
 
 insert into stop (name, latitude, longitude) values ('Addison Road', 38.8867478168, -76.89410791);
 insert into stop (name, latitude, longitude) values ('Anacostia', 38.8629631168, -76.9953707387);
