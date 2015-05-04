@@ -13,7 +13,7 @@
   <head>
     <meta charset="utf-8">
     <title>Transportation Website | CS329 Database Project</title>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">  
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">  
   </head>
   <body>
     
@@ -70,8 +70,8 @@
       </form>
     </div>
     
-    <script src="vendor/jquery/jquery.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.js"></script>
     
   </body>
 </html> 
