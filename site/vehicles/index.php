@@ -25,12 +25,12 @@
       
       <table class="table">
         <thead>
-          <th>
-            <td>ID</td>
-            <td>Capacity</td>
-            <td>Type</td>
-            <td></td>
-          </th>
+          <tr>
+            <th>ID</th>
+            <th>Capacity</th>
+            <th>Type</th>
+            <th></th>
+          </tr>
         </thead>
         <tbody>
           
