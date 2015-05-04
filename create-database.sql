@@ -316,12 +316,10 @@ INSERT INTO operates (vehicle_id, driver_id, date) VALUES (33, 22, '2015-04-03')
 INSERT INTO operates (vehicle_id, driver_id, date) VALUES (48, 23, '2015-04-03');
 INSERT INTO operates (vehicle_id, driver_id, date) VALUES (1, 24, '2015-04-03');
 
--- TODO safety_incident (do bus stops first)
--- '2015-04-01', 38.9843936603, -77.0941291922
--- '2015-04-02', 38.9843936603, -77.0941291922
--- '2015-04-03', 38.9843936603, -77.0941291922
+INSERT INTO safety_incident (datetime, latitude, longitude) VALUES ('2015-04-01', 38.9843936603, -77.0941291922);
+INSERT INTO safety_incident (datetime, latitude, longitude) VALUES ('2015-04-02', 38.9843936603, -77.0941291922);
+INSERT INTO safety_incident (datetime, latitude, longitude) VALUES ('2015-04-03', 38.9843936603, -77.0941291922);
 
--- TODO involved_in
 insert into involved_in (vehicle_id, incident_id, at_fault) values (37, 1, TRUE);
 insert into involved_in (vehicle_id, incident_id, at_fault) values (45, 2, TRUE);
 insert into involved_in (vehicle_id, incident_id, at_fault) values (77, 3, TRUE);
