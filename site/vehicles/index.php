@@ -43,10 +43,10 @@
             $stmt->setFetchMode(PDO::FETCH_NUM);
 
             while($row = $stmt->fetch()) {
-              echo("<tr data-id='" . $row[0] . "'><td>" . $row[0] . "</td><td>" . $row[1]  . "</td><td    >" . $row[3] . "</td>");
+              echo("<tr data-id='" . $row[0] . "'><td>" . $row[0] . "</td><td>" . $row[1]  . "</td><td    >" . $row[3] . "</td><td>");
               echo("<a class='btn btn-link' href='edit.php?id=" . $row[0] . "'>Edit</a>");
               echo("<a class='btn btn-link' href='delete.php?id=" . $row[0] . "'>Delete</a>");
-              echo("</tr>\n");
+              echo("</td></tr>\n");
             }
             
           ?>
