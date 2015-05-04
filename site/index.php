@@ -17,6 +17,10 @@
     
     <div class="container">
       <!-- content -->
+      <ul class="list-unstyled">
+        <li><a href="vehicles">Manage Vehicles</li>
+        <!-- TODO add the rest of the entity/relation links here -->
+      </ul>
     </div>
     
     <script src="vendor/jquery/jquery.js"></script>
