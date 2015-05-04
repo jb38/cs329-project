@@ -541,8 +541,6 @@ INSERT INTO line_stop (line_id, stop_id, line_order) VALUES (5, 1, 25);
 INSERT INTO line_stop (line_id, stop_id, line_order) VALUES (5, 53, 26);
 INSERT INTO line_stop (line_id, stop_id, line_order) VALUES (5, 47, 27);
 
-
--- TODO rider
 INSERT INTO rider (name) VALUES ('Breanna Watson');
 INSERT INTO rider (name) VALUES ('Dexter Rivas');
 INSERT INTO rider (name) VALUES ('Pascale Gibson');
