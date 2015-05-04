@@ -35,7 +35,7 @@
         <tbody>
           
           <?php
-            
+
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
             $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id";
  
