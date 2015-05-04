@@ -642,4 +642,9 @@ INSERT INTO rider (name) VALUES ('Mira Sampson');
 INSERT INTO rider (name) VALUES ('Wyoming Austin');
 INSERT INTO rider (name) VALUES ('Clark Vazquez');
 
--- TODO trip (depends on bus stops in stop)
+INSERT INTO trip (rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost) VALUES ('22', '2015-04-02 06:45:00', '2015-04-02 08:56:21', '77', '64', '5.55');
+INSERT INTO trip (rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost) VALUES ('25', '2015-04-03 16:45:00', '2015-04-03 18:56:21', '14', '29', '3.33');
+INSERT INTO trip (rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost) VALUES ('23', '2015-04-03 05:42:12', '2015-04-03 07:22:56', '42', '44', '7.47');
+INSERT INTO trip (rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost) VALUES ('21', '2015-04-12 12:45:01', '2015-04-12 12:56:21', '37', '39', '2.99');
+INSERT INTO trip (rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost) VALUES ('10', '2015-04-22 17:47:47', '2015-04-22 18:22:22', '28', '12', '8.33');
+INSERT INTO trip (rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost) VALUES ('22', '2015-04-23 23:45:00', '2015-04-24 00:56:21', '10', '36', '3.88');
