@@ -27,7 +27,7 @@
     
     <div class="container">
       
-      <h1>Edit Vehicle</h1>
+      <h1>New Vehicle</h1>
       
       <form class="form form-horizontal" method="POST" action="edit.php">
         	
@@ -64,7 +64,7 @@
           
           <div class="form-group">
             <div class="col-sm-6 text-right">
-              <button class="btn btn-primary">Apply</button>
+              <button class="btn btn-primary">Create</button>
               <a class="btn btn-link" href="index.php">Cancel</a>
             </div>
           </div>	

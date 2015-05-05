@@ -5,15 +5,14 @@
   
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    $vehicle_id = intval($_POST["id"]);
-    $capcity = intval($_POST["capacity"]);
-    $type = intval($_POST["type"]);
+    $vehicle_id = $_POST["id"];
+    $capcity = $_POST["capacity"];
+    $type = $_POST["type"];
     
-    $sql = "update vehicle set capacity = ?, type = ? where id = ?";
+    $sql = "update vehicle set capacity = :capacity, type = :type where id = :id";
    
     $stmt = $pdo->prepare($sql);
-
-    $row = $stmt->execute(array($capacity, $type, $vehicle_id));
+    $stmt->execute(array(':capacity' => $capacity, ':type' => $type, ':id' => $vehicle_id));
     
   }
 ?>
