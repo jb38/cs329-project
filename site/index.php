@@ -16,12 +16,28 @@
     </nav>
     
     <div class="container">
+      
+      <h4>Actions</h4>
+      <ul class="list-unstyled">
+        <li><a href="actions/assign_vehicle.php">Assign Vehicle to Driver</li>
+        <li><a href="actions/safety_incident.php">Log Safety Incident</li>
+        <!-- TODO add the rest of the action links here -->
+      </ul>
+      
+      <h4>Reports</h4>
+      <ul class="list-unstyled">
+        <li><a href="reports/safety.php">Safety Records</li>
+        <!-- TODO add the rest of the report links here -->
+      </ul>
+      
+      <h4>Table Management</h4>
       <ul class="list-unstyled">
         <li><a href="drivers">Manage Drivers</li>
         <li><a href="vehicles">Manage Vehicles</li>
         <li><a href="safety_incidents">Manage Safety Incidents</li>
         <!-- TODO add the rest of the entity/relation links here -->
       </ul>
+      
     </div>
     
     <script src="vendor/jquery/jquery.js"></script>
