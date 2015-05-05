@@ -48,10 +48,6 @@
               $row = $stmt->fetch();
             ?>
             
-            <pre>
-              <?php echo($sql . "\n" . $_GET["id"]); ?>
-            </pre>
-            	
             <input type="hidden" name="id" value="<?php echo($row[0]); ?>">
             
             <div class="form-group">
