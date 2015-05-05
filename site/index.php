@@ -19,28 +19,27 @@
       
       <h4>Actions</h4>
       <ul class="list-unstyled">
-        <li><a href="actions/assign_vehicle.php">Assign Vehicle to Driver</li>
-        <li><a href="actions/safety_incident.php">Log Safety Incident</li>
+        <li><a href="actions/assign_vehicle.php">Assign Vehicle to Driver</a></li>
+        <li><a href="actions/safety_incident.php">Log Safety Incident</a></li>
         <!-- TODO add the rest of the action links here -->
       </ul>
       
       <h4>Reports</h4>
       <ul class="list-unstyled">
-        <li><a href="reports/safety.php">Safety Records</li>
+        <li><a href="reports/safety.php">Safety Records</a></li>
         <!-- TODO add the rest of the report links here -->
       </ul>
       
       <h4>Table Management</h4>
       <ul class="list-unstyled">
-        <li><a href="drivers">Manage Drivers</li>
-        <li><a href="vehicles">Manage Vehicles</li>
-        <li><a href="safety_incidents">Manage Safety Incidents</li>
-        <!-- TODO add the rest of the entity/relation links here -->
-        <li><a href="stops">Manage Stops</li>
-        <li><a href="lines">Manage Lines</li>
-        <li><a href="line_stops">Manage Line Stops</li>
-        <li><a href="riders">Manage Riders</li>
-        <li><a href="trips">Manage Trips</li>
+        <li><a href="drivers">Manage Drivers</a></li>
+        <li><a href="vehicles">Manage Vehicles</a></li>
+        <li><a href="safety_incidents">Manage Safety Incidents</a></li>
+        <li><a href="stops">Manage Stops</a></li>
+        <li><a href="lines">Manage Lines</a></li>
+        <li><a href="line_stops">Manage Line Stops</a></li>
+        <li><a href="riders">Manage Riders</a></li>
+        <li><a href="trips">Manage Trips</a></li>
       </ul>
       
     </div>
