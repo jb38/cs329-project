@@ -13,8 +13,6 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(":vehicle_id" => $vehicle_id));
     
-    $stmt->fetch();
-    
     header("Location: index.php");  
   }
   
