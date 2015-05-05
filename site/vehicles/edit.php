@@ -67,7 +67,24 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Type</label>
               <div class="col-sm-4">
-                <input class="form-control" name="type" value="<?php echo($row[2]); ?>">
+                <select class="form-control" name="type">
+                  
+                  <?php
+                    
+                    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+                
+                    $sql = "select id, description from vehicle_type order by description";
+         
+                    $stmt = $conn->query($sql);
+                    $stmt->setFetchMode(PDO::FETCH_NUM);
+        
+                    while($option = $stmt->fetch()) {
+                      echo("<option value='" . $option[0] . ($option[0] === $row[2] ? " selected" : "") . "'>" . $option[1] . "</option>"); 
+                    }
+                    
+                  ?>
+                  
+                </select>
               </div>
             </div>
             
