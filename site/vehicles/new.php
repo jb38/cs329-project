@@ -32,15 +32,15 @@
       <form class="form form-horizontal" method="POST" action="edit.php">
         	
           <div class="form-group">
-            <label class="col-sm-2 control-label">Capacity</label>
-            <div class="col-sm-10">
-              <input class="form-control" name="capacity" value="">
+            <label class="col-sm-2 col-sm-offset-3 control-label">Capacity</label>
+            <div class="col-sm-6">
+              <input class="form-control" type="number" name="capacity" value="40">
             </div>
           </div>
           
           <div class="form-group">
-            <label class="col-sm-2 control-label">Type</label>
-            <div class="col-sm-10">
+            <label class="col-sm-2 col-sm-offset-3 control-label">Type</label>
+            <div class="col-sm-6">
               <select class="form-control" name="type">
                 
                 <?php
@@ -63,7 +63,7 @@
           </div>
           
           <div class="form-group">
-            <div class="col-sm-12 text-right">
+            <div class="col-sm-6 col-sm-offset-3 text-right">
               <button class="btn btn-primary">Apply</button>
               <a class="btn btn-link" href="index.php">Cancel</a>
             </div>
