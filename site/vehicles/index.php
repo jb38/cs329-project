@@ -52,8 +52,8 @@
               while($row = $stmt->fetch()) {
                 
                 echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["capacity"]  . "</td><td>" . $row["description"] . "</td><td>");
-                echo("<a class='btn btn-link' href='edit.php?id=" . $row["id"] . "'>Edit</a>");
-                echo("<a class='btn btn-link' href='delete.php?id=" . $row["id"] . "'>Delete</a>");
+                echo("<a href='edit.php?id=" . $row["id"] . "'>Edit</a>");
+                echo("<a href='delete.php?id=" . $row["id"] . "'>Delete</a>");
                 echo("</td></tr>\n");
               }
               
