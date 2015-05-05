@@ -41,7 +41,7 @@
               
               $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = ?";
    
-              $stmt = $pdo->query($sql);
+              $stmt = $pdo->prepare($sql);
               $stmt->bindParam(1, $_GET["id"], PDO::PARAM_INT);
               $stmt->setFetchMode(PDO::FETCH_NUM);
   
