@@ -46,7 +46,7 @@
             
             <?php
   
-              $sql = "select id, dateimt, latitude, longitude from safety_incident order by datetime desc";
+              $sql = "select id, datetime, latitude, longitude from safety_incident order by datetime desc";
    
               $stmt = $pdo->query($sql);
   
