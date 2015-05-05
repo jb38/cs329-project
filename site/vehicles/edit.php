@@ -14,6 +14,7 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(':capacity' => $capacity, ':type' => $type, ':vehicle_id' => $vehicle_id));
     
+    $stmt->fetch();
   }
   
   
@@ -47,7 +48,7 @@
               
               $vehicle_id = isset($_POST["id"]) ? $_POST["id"] : $_GET["id"];
               
-              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id" . intval($_GET["id"]);
+              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id";
    
               $stmt = $pdo->prepare($sql);
               $stmt->execute(array(':vehicle_id' => $vehicle_id));
