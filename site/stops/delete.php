@@ -78,7 +78,7 @@
             </div>
           </div>
           
-		  <div class="form-group">
+          <div class="form-group">
             <label class="col-sm-2 control-label">Longitude</label>
             <div class="col-sm-4">
               <p class="form-control-static"><?php echo($row["longitude"]); ?></p>

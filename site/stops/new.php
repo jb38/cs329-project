@@ -8,14 +8,14 @@
     
     $name = $_POST["name"];
     $latitude = $_POST["latitude"];
-	$longitude = $_POST["longitude"];
+    $longitude = $_POST["longitude"];
     
     $sql = "insert into stop (name, latitude, longitude) values (:name, :latitude, :longitude)";
    
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(":name"      => $name, 
                          ":latitude" => $latitude,
-						 ":longitude" => $longitude));
+                         ":longitude" => $longitude));
     
     header("Location: index.php");
   }
@@ -59,7 +59,7 @@
             </div>
           </div>
 		  
-		  <div class="form-group">
+          <div class="form-group">
             <label class="col-sm-2 control-label">Longitude</label>
             <div class="col-sm-4">
               <input class="form-control" type="text" name="longitude">

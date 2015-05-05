@@ -9,14 +9,14 @@
     $stop_id = $_POST["id"];
     $name = $_POST["name"];
     $latitude = $_POST["latitude"];
-	$longitude = $_POST["longitude"];
+    $longitude = $_POST["longitude"];
     
     $sql = "update stop set name = :name, latitude = :latitude, longitude = :longitude where id = :stop_id";
    
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(":name"      => $name, 
                          ":latitude" => $latitude,
-						 ":longitude" => $longitude,
+                         ":longitude" => $longitude,
                          ":stop_id" => $stop_id));
     
     header("Location: index.php");
@@ -84,7 +84,7 @@
               </div>
             </div>
             
-			<div class="form-group">
+            <div class="form-group">
               <label class="col-sm-2 control-label">Longitude</label>
               <div class="col-sm-4">
                 <input class="form-control" type="text" name="longitude" value="<?php echo($row["longitude"]); ?>">

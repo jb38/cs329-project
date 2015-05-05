@@ -21,11 +21,11 @@
         <li><a href="vehicles">Manage Vehicles</li>
         <li><a href="safety_incidents">Manage Safety Incidents</li>
         <!-- TODO add the rest of the entity/relation links here -->
-		<li><a href="stops">Manage Stops</li>
-		<li><a href="lines">Manage Lines</li>
-		<li><a href="line_stops">Manage Line Stops</li>
-		<li><a href="riders">Manage Riders</li>
-		<li><a href="trips">Manage Trips</li>
+        <li><a href="stops">Manage Stops</li>
+        <li><a href="lines">Manage Lines</li>
+        <li><a href="line_stops">Manage Line Stops</li>
+        <li><a href="riders">Manage Riders</li>
+        <li><a href="trips">Manage Trips</li>
       </ul>
     </div>
     

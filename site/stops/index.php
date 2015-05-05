@@ -38,7 +38,7 @@
               <th>ID</th>
               <th>Name</th>
               <th>Latitude</th>
-			  <th>Longitude</th>
+              <th>Longitude</th>
               <th></th>
             </tr>
           </thead>
