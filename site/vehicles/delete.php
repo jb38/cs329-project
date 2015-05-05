@@ -3,8 +3,18 @@
   
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // TODO grab the id value and perform the delete
+    $vehicle_id = $_POST["id"];
     
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+
+    $sql = "delete from vehicle where id = :vehicle_id";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":vehicle_id", $vehicle_id, PDO::PARAM_INT);
+
+    $row = $stmt->execute();
+    
+    header( "Location: index.php" );
   }
 ?>
 
@@ -43,29 +53,39 @@
             $stmt->setFetchMode(PDO::FETCH_NUM);
 
             $row = $stmt->fetch();
+            
           ?>
           	
           <input type="hidden" name="id" value="<?php echo($row[0]); ?>">
           
           <div class="form-group">
-            <label>ID</label>
-            <p class="form-control-static"><?php echo($row[0]); ?></p>
+            <label class="col-sm-2 control-label">ID</label>
+            <div class="col-sm-4">
+              <p class="form-control-static"><?php echo($row[0]); ?></p>
+            </div>
           </div>
           
           <div class="form-group">
-            <label>Capacity</label>
-            <p class="form-control-static"><?php echo($row[1]); ?></p>
+            <label class="col-sm-2 control-label">Capacity</label>
+            <div class="col-sm-4">
+              <p class="form-control-static"><?php echo($row[1]); ?></p>
+            </div>
           </div>
           
           <div class="form-group">
-            <label>Type</label>
-            <p class="form-control-static"><?php echo($row[3]); ?></p>
+            <label class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-4">
+              <p class="form-control-static"><?php echo($row[3]); ?></p>
+            </div>
           </div>
           
           <div class="form-group text-right">
-            <button class="btn btn-danger">Apply</button>
-            <a class="btn btn-link" href="index.php">Cancel</a>
-          </div>	
+            <div class="col-sm-6">
+              <button class="btn btn-danger">Delete</button>
+              <a class="btn btn-link" href="index.php">Cancel</a>
+            </div>
+          </div>
+          	
       </form>
     </div>
     
