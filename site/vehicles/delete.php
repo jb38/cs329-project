@@ -5,16 +5,14 @@
     
     try {
       
-      $vehicle_id = $_POST["id"];
-      
-      $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
   
       $sql = "delete from vehicle where id = :vehicle_id";
   
-      $stmt = $conn->prepare($sql);
-      $stmt->bindParam(":vehicle_id", $vehicle_id, PDO::PARAM_INT);
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(":vehicle_id", $_POST["id"], PDO::PARAM_INT);
   
-      $row = $stmt->execute();
+      $stmt->execute();
       
       header( "Location: index.php" );
     
