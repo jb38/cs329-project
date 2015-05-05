@@ -79,7 +79,7 @@
                     $stmt->setFetchMode(PDO::FETCH_NUM);
         
                     while($option = $stmt->fetch()) {
-                      echo("<option value='" . $option[0] . ($option[0] === $row[2] ? " selected" : "") . "'>" . $option[1] . "</option>"); 
+                      echo("<option value='" . $option[0] . "'" . ($option[0] === $row[2] ? " selected" : "") . ">" . $option[1] . "</option>"); 
                     }
                     
                   ?>
