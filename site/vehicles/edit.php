@@ -6,7 +6,7 @@
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $vehicle_id = $_POST["id"];
-    $capcity = $_POST["capacity"];
+    $capacity = $_POST["capacity"];
     $type = $_POST["type"];
     
     $sql = "update vehicle set capacity = :capacity, type = :type where id = :vehicle_id";
