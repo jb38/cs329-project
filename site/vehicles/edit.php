@@ -46,6 +46,8 @@
               $stmt->setFetchMode(PDO::FETCH_NUM);
   
               $row = $stmt->fetch();
+              
+              echo("<pre>" . $row . "</pre>");
             ?>
             	
             <input type="hidden" name="id" value="<?php echo($row[0]); ?>">
