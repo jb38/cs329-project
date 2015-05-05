@@ -42,7 +42,7 @@ CREATE TABLE vehicle (
   ,capacity  INTEGER  NOT NULL
   ,type      INTEGER  NOT NULL
   ,CONSTRAINT PRIMARY KEY (id)
-  ,CONSTRAINT FOREIGN KEY (type) REFERENCES vehicle_type (id)
+  ,CONSTRAINT FOREIGN KEY (type) REFERENCES vehicle_type (id) ON DELETE CASCADE
 );
 
 CREATE TABLE operates (
@@ -50,8 +50,8 @@ CREATE TABLE operates (
   ,driver_id   INTEGER  NOT NULL
   ,date        DATE     NOT NULL
   ,CONSTRAINT PRIMARY KEY (vehicle_id, driver_id, date)
-  ,CONSTRAINT FOREIGN KEY (vehicle_id) REFERENCES vehicle (id)
-  ,CONSTRAINT FOREIGN KEY (driver_id) REFERENCES driver (id)
+  ,CONSTRAINT FOREIGN KEY (vehicle_id) REFERENCES vehicle (id) ON DELETE CASCADE
+  ,CONSTRAINT FOREIGN KEY (driver_id) REFERENCES driver (id) ON DELETE CASCADE
   ,CONSTRAINT UNIQUE KEY (vehicle_id, date)
   ,CONSTRAINT UNIQUE KEY (driver_id, date)
 );
@@ -69,8 +69,8 @@ CREATE TABLE involved_in (
   ,incident_id  INTEGER  NOT NULL
   ,at_fault     BOOLEAN  NOT NULL
   ,CONSTRAINT PRIMARY KEY (vehicle_id, incident_id)
-  ,CONSTRAINT FOREIGN KEY (vehicle_id) REFERENCES vehicle (id)
-  ,CONSTRAINT FOREIGN KEY (incident_id) REFERENCES safety_incident (id)
+  ,CONSTRAINT FOREIGN KEY (vehicle_id) REFERENCES vehicle (id) ON DELETE CASCADE
+  ,CONSTRAINT FOREIGN KEY (incident_id) REFERENCES safety_incident (id) ON DELETE CASCADE
 );
 
 CREATE TABLE stop (
@@ -86,7 +86,7 @@ CREATE TABLE line (
   ,name          VARCHAR(255)  NOT NULL
   ,vehicle_type  INTEGER       NOT NULL
   ,CONSTRAINT PRIMARY KEY (id)
-  ,CONSTRAINT FOREIGN KEY (vehicle_type) REFERENCES vehicle_type (id)
+  ,CONSTRAINT FOREIGN KEY (vehicle_type) REFERENCES vehicle_type (id) ON DELETE CASCADE
 );
 
 CREATE TABLE line_stop (
@@ -94,8 +94,8 @@ CREATE TABLE line_stop (
   ,stop_id     INTEGER  NOT NULL
   ,line_order  INTEGER  NOT NULL
   ,CONSTRAINT PRIMARY KEY (line_id, stop_id)
-  ,CONSTRAINT FOREIGN KEY (line_id) REFERENCES line (id)
-  ,CONSTRAINT FOREIGN KEY (stop_id) REFERENCES stop (id)
+  ,CONSTRAINT FOREIGN KEY (line_id) REFERENCES line (id) ON DELETE CASCADE
+  ,CONSTRAINT FOREIGN KEY (stop_id) REFERENCES stop (id) ON DELETE CASCADE
   ,CONSTRAINT UNIQUE KEY (line_id, stop_id, line_order)
 );
 
@@ -114,9 +114,9 @@ CREATE TABLE trip (
   ,exit_stop       INTEGER
   ,cost            NUMERIC(15,2)
   ,CONSTRAINT PRIMARY KEY (id)
-  ,CONSTRAINT FOREIGN KEY (rider_id) REFERENCES rider (id)
-  ,CONSTRAINT FOREIGN KEY (entry_stop) REFERENCES stop (id)
-  ,CONSTRAINT FOREIGN KEY (exit_stop) REFERENCES stop (id)
+  ,CONSTRAINT FOREIGN KEY (rider_id) REFERENCES rider (id) ON DELETE CASCADE
+  ,CONSTRAINT FOREIGN KEY (entry_stop) REFERENCES stop (id) ON DELETE CASCADE
+  ,CONSTRAINT FOREIGN KEY (exit_stop) REFERENCES stop (id) ON DELETE CASCADE
 );
 
 -- load data
