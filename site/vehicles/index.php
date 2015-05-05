@@ -28,7 +28,7 @@
       
         <h1>Vehicles</h1>
         
-        <div>
+        <div class="text-right">
           <a class="btn btn-primary" href="new.php">New</a>
         </div>
         
