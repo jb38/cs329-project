@@ -9,12 +9,12 @@
     $capcity = intval($_POST["capacity"]);
     $type = intval($_POST["type"]);
     
-    $sql = "update vehicle set capacity = " . $capacity . ", type = " . $type . " where id = " . $vehicle_id;
+    $sql = "update vehicle set capacity = ?, type = ? where id = ?";
    
-    $stmt = $pdo->query($sql);
-    $stmt->setFetchMode(PDO::FETCH_NUM);
+    $stmt = $pdo->prepare($sql);
 
-    $row = $stmt->execute();
+    $row = $stmt->execute(array($capacity, $type, $vehicle_id));
+    
   }
 ?>
 
