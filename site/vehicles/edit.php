@@ -29,7 +29,7 @@
       
       <h1>Edit Vehicle</h1>
       
-      <form class="form" method="POST" action="edit.php">
+      <form class="form form-horizontal" method="POST" action="edit.php">
         
           <?php
             

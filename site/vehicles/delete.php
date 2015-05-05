@@ -29,7 +29,7 @@
       
       <h1>Delete Vehicle</h1>
       
-      <form class="form" method="POST" action="delete.php">
+      <form class="form form-horizontal" method="POST" action="delete.php">
         
           <?php
             
