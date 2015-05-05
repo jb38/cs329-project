@@ -3,16 +3,24 @@
   
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    $vehicle_id = $_POST["id"];
+    try {
+      
+      $vehicle_id = $_POST["id"];
+      
+      $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+  
+      $sql = "delete from vehicle where id = :vehicle_id";
+  
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(":vehicle_id", $vehicle_id, PDO::PARAM_INT);
+  
+      $row = $stmt->execute();
     
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-
-    $sql = "delete from vehicle where id = :vehicle_id";
-
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":vehicle_id", $vehicle_id, PDO::PARAM_INT);
-
-    $row = $stmt->execute();
+    } catch (Exception $e) {
+      
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+      
+    }
     
     header( "Location: index.php" );
   }
