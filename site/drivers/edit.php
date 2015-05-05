@@ -50,7 +50,7 @@
               
               $driver_id = $_GET["id"];
               
-              $sql = "select id, name, hire_date from vehicle where id = :driver_id";
+              $sql = "select id, name, hire_date from driver where id = :driver_id";
    
               $stmt = $pdo->prepare($sql);
               $stmt->execute(array(":driver_id" => $driver_id));
