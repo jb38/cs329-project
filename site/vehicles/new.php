@@ -14,7 +14,6 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(":capacity" => $capacity, 
                          ":type"     => $type));
-    $stmt->fetch();
     
     header("Location: index.php");
   }
@@ -32,7 +31,7 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.php">Transportation Website</a>
+          <a class="navbar-brand" href="../index.php">Transportation Website</a>
         </div>
       </div>
     </nav>
