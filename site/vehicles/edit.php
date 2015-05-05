@@ -39,10 +39,9 @@
               
               $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
               
-              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id";
+              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = " . intval($_GET["id"]);
    
-              $stmt = $pdo->prepare($sql);
-              $stmt->bindValue(":vehicle_id", intval($_GET["id"]), PDO::PARAM_INT);
+              $stmt = $pdo->query($sql);
               $stmt->setFetchMode(PDO::FETCH_NUM);
   
               $row = $stmt->fetch();
