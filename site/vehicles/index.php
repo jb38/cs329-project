@@ -41,7 +41,7 @@
             
             <?php
   
-              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id";
+              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id order by v.id";
    
               $stmt = $pdo->query($sql);
   
