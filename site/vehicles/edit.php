@@ -42,7 +42,7 @@
               $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id";
    
               $stmt = $pdo->prepare($sql);
-              $stmt->bindValue(":vehicle_id", $_GET["id"], PDO::PARAM_INT);
+              $stmt->bindValue(":vehicle_id", intval($_GET["id"]), PDO::PARAM_INT);
               $stmt->setFetchMode(PDO::FETCH_NUM);
   
               $row = $stmt->fetch();
