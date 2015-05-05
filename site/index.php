@@ -16,10 +16,10 @@
     </nav>
     
     <div class="container">
-      <!-- content -->
       <ul class="list-unstyled">
         <li><a href="drivers">Manage Drivers</li>
         <li><a href="vehicles">Manage Vehicles</li>
+        <li><a href="safety_incidents">Manage Safety Incidents</li>
         <!-- TODO add the rest of the entity/relation links here -->
       </ul>
     </div>
