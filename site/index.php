@@ -18,6 +18,7 @@
     <div class="container">
       <!-- content -->
       <ul class="list-unstyled">
+        <li><a href="drivers">Manage Drivers</li>
         <li><a href="vehicles">Manage Vehicles</li>
         <!-- TODO add the rest of the entity/relation links here -->
       </ul>
