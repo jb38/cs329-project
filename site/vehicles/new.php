@@ -33,14 +33,14 @@
         	
           <div class="form-group">
             <label class="col-sm-2 control-label">Capacity</label>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <input class="form-control" type="number" name="capacity" value="40">
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Type</label>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <select class="form-control" name="type">
                 
                 <?php
