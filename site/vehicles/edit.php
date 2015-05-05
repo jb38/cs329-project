@@ -1,13 +1,20 @@
 <?php
   include '../database.php';
   
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+  
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    $vehicle_id = $_POST["id"];
-    $capcity = $_POST["capacity"];
-    $type = $_POST["type"];
+    $vehicle_id = intval($_POST["id"]);
+    $capcity = intval($_POST["capacity"]);
+    $type = intval($_POST["type"]);
     
-    
+    $sql = "update vehicle set capacity = " . $capacity . ", type = " . $type . " where id = " . $vehicle_id;
+   
+    $stmt = $pdo->query($sql);
+    $stmt->setFetchMode(PDO::FETCH_NUM);
+
+    $row = $stmt->execute();
   }
 ?>
 
@@ -37,14 +44,13 @@
           
             <?php
               
-              $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-              
               $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = " . intval($_GET["id"]);
    
               $stmt = $pdo->query($sql);
               $stmt->setFetchMode(PDO::FETCH_NUM);
   
               $row = $stmt->fetch();
+              
             ?>
             
             <input type="hidden" name="id" value="<?php echo($row[0]); ?>">
@@ -71,11 +77,9 @@
                   
                   <?php
                     
-                    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-                
                     $sql = "select id, description from vehicle_type order by description";
          
-                    $stmt = $conn->query($sql);
+                    $stmt = $pdo->query($sql);
                     $stmt->setFetchMode(PDO::FETCH_NUM);
         
                     while($option = $stmt->fetch()) {
