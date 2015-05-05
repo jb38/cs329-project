@@ -28,6 +28,10 @@
       
         <h1>Vehicles</h1>
         
+        <div>
+          <a class="btn btn-primary" href="new.php">New</a>
+        </div>
+        
         <table class="table table-striped">
           <thead>
             <tr>
