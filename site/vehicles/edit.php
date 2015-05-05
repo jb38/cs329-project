@@ -17,8 +17,6 @@
                          ":type"       => $type, 
                          ":vehicle_id" => $vehicle_id));
     
-    $stmt->fetch();
-    
     header("Location: index.php");
   }
   

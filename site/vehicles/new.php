@@ -15,8 +15,6 @@
     $stmt->execute(array(":capacity" => $capacity, 
                          ":type"     => $type));
     
-    $stmt->fetch();
-    
     header("Location: index.php");
   }
 ?>
