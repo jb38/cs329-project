@@ -15,6 +15,8 @@
       $stmt->bindParam(":vehicle_id", $vehicle_id, PDO::PARAM_INT);
   
       $row = $stmt->execute();
+      
+      header( "Location: index.php" );
     
     } catch (Exception $e) {
       
@@ -22,7 +24,6 @@
       
     }
     
-    header( "Location: index.php" );
   }
 ?>
 
