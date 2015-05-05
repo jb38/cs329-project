@@ -9,12 +9,14 @@
     $capcity = $_POST["capacity"];
     $type = $_POST["type"];
     
-    $sql = "update vehicle set capacity = :capacity, type = :type where id = :id";
+    $sql = "update vehicle set capacity = :capacity, type = :type where id = :vehicle_id";
    
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(':capacity' => $capacity, ':type' => $type, ':id' => $vehicle_id));
+    $stmt->execute(array(':capacity' => $capacity, ':type' => $type, ':vehicle_id' => $vehicle_id));
     
   }
+  
+  
 ?>
 
 <!DOCTYPE html>
@@ -43,30 +45,29 @@
           
             <?php
               
-              $vehicle_id = intval(isset($_POST["id"]) ? $_POST["id"] : $_GET["id"]);
+              $vehicle_id = isset($_POST["id"]) ? $_POST["id"] : $_GET["id"];
               
-              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = " . intval($_GET["id"]);
+              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id" . intval($_GET["id"]);
    
-              $stmt = $pdo->query($sql);
-              $stmt->setFetchMode(PDO::FETCH_NUM);
+              $stmt = $pdo->prepare($sql);
   
-              $row = $stmt->fetch();
+              $row = $stmt->execute(array(':vehicle_id' => $vehicle_id));
               
             ?>
             
-            <input type="hidden" name="id" value="<?php echo($row[0]); ?>">
+            <input type="hidden" name="id" value="<?php echo($row['id']); ?>">
             
             <div class="form-group">
               <label class="col-sm-2 control-label">ID</label>
               <div class="col-sm-4">
-                <p class="form-control-static"><?php echo($row[0]); ?></p>
+                <p class="form-control-static"><?php echo($row['id']); ?></p>
               </div>
             </div>
             
             <div class="form-group">
               <label class="col-sm-2 control-label">Capacity</label>
               <div class="col-sm-4">
-                <input class="form-control" name="capacity" value="<?php echo($row[1]); ?>">
+                <input class="form-control" name="capacity" value="<?php echo($row['capacity']); ?>">
               </div>
             </div>
             
@@ -81,10 +82,9 @@
                     $sql = "select id, description from vehicle_type order by description";
          
                     $stmt = $pdo->query($sql);
-                    $stmt->setFetchMode(PDO::FETCH_NUM);
         
                     while($option = $stmt->fetch()) {
-                      echo("<option value='" . $option[0] . "'" . ($option[0] === $row[2] ? " selected" : "") . ">" . $option[1] . "</option>"); 
+                      echo("<option value='" . $option['id'] . "'" . ($option['id'] === $row['type'] ? " selected" : "") . ">" . $option['description'] . "</option>"); 
                     }
                     
                   ?>
