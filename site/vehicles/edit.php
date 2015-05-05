@@ -50,8 +50,9 @@
               $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id" . intval($_GET["id"]);
    
               $stmt = $pdo->prepare($sql);
-  
-              $row = $stmt->execute(array(':vehicle_id' => $vehicle_id));
+              $stmt->execute(array(':vehicle_id' => $vehicle_id));
+              
+              $row = $stmt->fetch();
               
             ?>
             
