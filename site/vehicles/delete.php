@@ -1,28 +1,21 @@
 <?php
-  include '../database.php';
   
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  include "../database.php";
+  
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+  
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    try {
-      
-      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+    $sql = "delete from vehicle where id = :vehicle_id";
   
-      $sql = "delete from vehicle where id = :vehicle_id";
-  
-      $stmt = $pdo->prepare($sql);
-      $stmt->bindParam(":vehicle_id", $_POST["id"], PDO::PARAM_INT);
-  
-      $stmt->execute();
-      
-      header( "Location: index.php" );
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(":vehicle_id" => $vehicle_id));
     
-    } catch (Exception $e) {
-      
-      echo 'Caught exception: ',  $e->getMessage(), "\n";
-      
-    }
+    $stmt->fetch();
     
+    header("Location: index.php");  
   }
+  
 ?>
 
 <!DOCTYPE html>
@@ -43,46 +36,45 @@
     </nav>
     
     <div class="container">
-      
-      <h1>Delete Vehicle</h1>
-      
-      <form class="form form-horizontal" method="POST" action="delete.php">
+      <div class="col-sm-12">
         
+        <h1>Delete Vehicle</h1>
+        
+        <form class="form form-horizontal" method="POST" action="delete.php">
+          
           <?php
-            
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
             
             $vehicle_id = $_GET["id"];
             
-            $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = " . $vehicle_id;
+            $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = :vehicle_id";
  
-            $stmt = $conn->query($sql);
-            $stmt->setFetchMode(PDO::FETCH_NUM);
-
+            $stmt = $pdo->query($sql);
+  	        $stmt->execute(array(":vehicle_id" => $vehicle_id));
+            
             $row = $stmt->fetch();
             
           ?>
           	
-          <input type="hidden" name="id" value="<?php echo($row[0]); ?>">
+          <input type="hidden" name="id" value="<?php echo($row["id"]); ?>">
           
           <div class="form-group">
             <label class="col-sm-2 control-label">ID</label>
             <div class="col-sm-4">
-              <p class="form-control-static"><?php echo($row[0]); ?></p>
+              <p class="form-control-static"><?php echo($row["id"]); ?></p>
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Capacity</label>
             <div class="col-sm-4">
-              <p class="form-control-static"><?php echo($row[1]); ?></p>
+              <p class="form-control-static"><?php echo($row["capacity"]); ?></p>
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Type</label>
             <div class="col-sm-4">
-              <p class="form-control-static"><?php echo($row[3]); ?></p>
+              <p class="form-control-static"><?php echo($row["description"]); ?></p>
             </div>
           </div>
           
@@ -92,8 +84,10 @@
               <a class="btn btn-link" href="index.php">Cancel</a>
             </div>
           </div>
-          	
-      </form>
+            	
+        </form>
+      
+      </div>
     </div>
     
     <script src="../vendor/jquery/jquery.js"></script>

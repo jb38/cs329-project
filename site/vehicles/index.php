@@ -1,6 +1,6 @@
 <?php
   
-  include '../database.php';
+  include "../database.php";
   
   $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
   
@@ -24,38 +24,41 @@
     </nav>
     
     <div class="container">
+      <div class="col-sm-12">
       
-      <h1>Vehicles</h1>
-      
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Capacity</th>
-            <th>Type</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          <?php
-
-            $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id";
- 
-            $stmt = $pdo->query($sql);
-
-            while($row = $stmt->fetch()) {
-              
-              echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["capacity"]  . "</td><td>" . $row["description"] . "</td><td>");
-              echo("<a class='btn btn-link' href='edit.php?id=" . $row["id"] . "'>Edit</a>");
-              echo("<a class='btn btn-link' href='delete.php?id=" . $row["id"] . "'>Delete</a>");
-              echo("</td></tr>\n");
-            }
+        <h1>Vehicles</h1>
+        
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Capacity</th>
+              <th>Type</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
             
-          ?>
-          
-        </tbody>
-      </table>
+            <?php
+  
+              $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id";
+   
+              $stmt = $pdo->query($sql);
+  
+              while($row = $stmt->fetch()) {
+                
+                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["capacity"]  . "</td><td>" . $row["description"] . "</td><td>");
+                echo("<a class='btn btn-link' href='edit.php?id=" . $row["id"] . "'>Edit</a>");
+                echo("<a class='btn btn-link' href='delete.php?id=" . $row["id"] . "'>Delete</a>");
+                echo("</td></tr>\n");
+              }
+              
+            ?>
+            
+          </tbody>
+        </table>
+        
+      </div>
     </div>
     
     <script src="../vendor/jquery/jquery.js"></script>

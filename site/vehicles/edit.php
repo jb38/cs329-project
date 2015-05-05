@@ -1,9 +1,10 @@
 <?php
-  include '../database.php';
+  
+  include "../database.php";
   
   $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
   
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $vehicle_id = $_POST["id"];
     $capacity = $_POST["capacity"];
@@ -12,11 +13,14 @@
     $sql = "update vehicle set capacity = :capacity, type = :type where id = :vehicle_id";
    
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(':capacity' => $capacity, ':type' => $type, ':vehicle_id' => $vehicle_id));
+    $stmt->execute(array(":capacity"   => $capacity, 
+                         ":type"       => $type, 
+                         ":vehicle_id" => $vehicle_id));
     
     $stmt->fetch();
+    
+    header("Location: index.php");
   }
-  
   
 ?>
 
@@ -46,30 +50,30 @@
           
             <?php
               
-              $vehicle_id = isset($_POST["id"]) ? $_POST["id"] : $_GET["id"];
+              $vehicle_id = $_GET["id"];
               
               $sql = "select id, capacity, type from vehicle where id = :vehicle_id";
    
               $stmt = $pdo->prepare($sql);
-              $stmt->execute(array(':vehicle_id' => $vehicle_id));
+              $stmt->execute(array(":vehicle_id" => $vehicle_id));
               
               $row = $stmt->fetch();
               
             ?>
             
-            <input type="hidden" name="id" value="<?php echo($row['id']); ?>">
+            <input type="hidden" name="id" value="<?php echo($row["id"]); ?>">
             
             <div class="form-group">
               <label class="col-sm-2 control-label">ID</label>
               <div class="col-sm-4">
-                <p class="form-control-static"><?php echo($row['id']); ?></p>
+                <p class="form-control-static"><?php echo($row["id"]); ?></p>
               </div>
             </div>
             
             <div class="form-group">
               <label class="col-sm-2 control-label">Capacity</label>
               <div class="col-sm-4">
-                <input class="form-control" name="capacity" value="<?php echo($row['capacity']); ?>">
+                <input class="form-control" type="number" name="capacity" value="<?php echo($row["capacity"]); ?>">
               </div>
             </div>
             
@@ -86,7 +90,7 @@
                     $stmt = $pdo->query($sql);
         
                     while($option = $stmt->fetch()) {
-                      echo("<option value='" . $option['id'] . "'" . ($option['id'] === $row['type'] ? " selected" : "") . ">" . $option['description'] . "</option>"); 
+                      echo("<option value='" . $option["id"] . "'" . ($option["id"] === $row["type"] ? " selected" : "") . ">" . $option["description"] . "</option>"); 
                     }
                     
                   ?>
@@ -103,6 +107,7 @@
             </div>
             
         </form>
+        
       </div>
     </div>
     
