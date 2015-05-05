@@ -15,7 +15,7 @@
     $stmt->execute(array(":capacity" => $capacity, 
                          ":type"     => $type));
     
-    //header("Location: index.php");
+    header("Location: index.php");
   }
 ?>
 
@@ -41,7 +41,7 @@
       
         <h1>New Vehicle</h1>
         
-        <form class="form form-horizontal" method="POST" action="edit.php">
+        <form class="form form-horizontal" method="POST" action="new.php">
           	
           <div class="form-group">
             <label class="col-sm-2 control-label">Capacity</label>
