@@ -1,5 +1,9 @@
 <?php
+  
   include '../database.php';
+  
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+  
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +40,15 @@
           
           <?php
 
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
             $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id";
  
-            $stmt = $conn->query($sql);
-            $stmt->setFetchMode(PDO::FETCH_NUM);
+            $stmt = $pdo->query($sql);
 
             while($row = $stmt->fetch()) {
-              echo("<tr data-id='" . $row[0] . "'><td>" . $row[0] . "</td><td>" . $row[1]  . "</td><td    >" . $row[3] . "</td><td>");
-              echo("<a class='btn btn-link' href='edit.php?id=" . $row[0] . "'>Edit</a>");
-              echo("<a class='btn btn-link' href='delete.php?id=" . $row[0] . "'>Delete</a>");
+              
+              echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["capacity"]  . "</td><td    >" . $row["description"] . "</td><td>");
+              echo("<a class='btn btn-link' href='edit.php?id=" . $row["id"] . "'>Edit</a>");
+              echo("<a class='btn btn-link' href='delete.php?id=" . $row["id"] . "'>Delete</a>");
               echo("</td></tr>\n");
             }
             
