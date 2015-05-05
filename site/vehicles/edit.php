@@ -44,6 +44,8 @@
           
             <?php
               
+              $vehicle_id = intval(isset($_POST["id"]) ? $_POST["id"] : $_GET["id"]);
+              
               $sql = "select v.id, v.capacity, v.type, t.description from vehicle v, vehicle_type t where v.type = t.id and v.id = " . intval($_GET["id"]);
    
               $stmt = $pdo->query($sql);
