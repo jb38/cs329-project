@@ -6,6 +6,8 @@
   
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
+    $vehicle_id = $_POST["id"];
+    
     $sql = "delete from vehicle where id = :vehicle_id";
   
     $stmt = $pdo->prepare($sql);
