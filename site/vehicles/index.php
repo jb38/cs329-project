@@ -23,7 +23,7 @@
       
       <h1>Vehicles</h1>
       
-      <table class="table">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
