@@ -13,9 +13,9 @@
     $sql = "update driver set name = :name, hire_date = :hire_date where id = :driver_id";
    
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(":capacity"  => $capacity, 
-                         ":name"      => $name, 
-                         ":hire_date" => $hire_date));
+    $stmt->execute(array(":name"      => $name, 
+                         ":hire_date" => $hire_date,
+                         ":driver_id" => $driver_id));
     
     header("Location: index.php");
   }
