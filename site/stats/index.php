@@ -79,7 +79,7 @@
                   $stmt = $pdo->query($sql);
     
                   while($row = $stmt->fetch()) {
-                      echo $row["AverageExp"] . " years";
+                      echo number_format($row["AverageExp"], 2) . " years";
                   }
                 
                 ?>
@@ -117,13 +117,42 @@
                   $stmt = $pdo->query($sql);
     
                   while($row = $stmt->fetch()) {
-                      echo $row["AverageCost"];
+                      echo "$" . number_format($row["AverageCost"], 2);
                   }
                 
                 ?>
               
               </td>
               <td><code>SELECT avg(cost) as AverageCost FROM trip</code></td>
+            </tr>
+            <tr>
+              <td>Top Three Problem Drivers</td>
+              <td>
+              
+                <?php
+                
+                  $sql = "select d.name as BadDriver, count(1) as NumAccidents from involved_in i 
+                          left join operates o on i.vehicle_id = o.vehicle_id
+                          left join driver d on o.driver_id = d.id
+                          group by d.name
+                          order by NumAccidents DESC
+                          limit 3";
+                  
+                  $stmt = $pdo->query($sql);
+    
+                  while($row = $stmt->fetch()) {
+                      echo $row["BadDriver"] . " (" . $row["NumAccidents"] . ") ";
+                  }
+                
+                ?>
+              
+              </td>
+              <td><code>SELECT d.name AS BadDriver, count(1) AS NumAccidents FROM involved_in i 
+                        LEFT JOIN operates o ON i.vehicle_id = o.vehicle_id
+                        LEFT JOIN driver d ON o.driver_id = d.id
+                        GROUP BY BadDriver
+                        ORDER BY NumAccidents DESC
+                        LIMIT 3</code></td>
             </tr>
           </tbody>
         </table>
