@@ -49,7 +49,7 @@
             
             <?php
   
-              $sql = "select t.id, t.rider_id, t.entry_datetime, t.exit_datetime, t.entry_stop, t.exit_stop, t.cost, r.name as rider_name, s.name as entry_stop_name, s.name as exit_stop_name from trip t, rider r, stop s where t.rider_id = r.id AND t.entry_stop = s.id AND t.exit_stop = s.id order by t.id";
+              $sql = "select t.id, t.rider_id, t.entry_datetime, t.exit_datetime, t.entry_stop, t.exit_stop, t.cost, r.name as rider_name, fs.name as entry_stop_name, ls.name as exit_stop_name from trip t join rider r on t.rider_id = r.id join stop fs on t.entry_stop = fs.id join stop ls on t.exit_stop = ls.id order by t.id";
    
               $stmt = $pdo->query($sql);
   
