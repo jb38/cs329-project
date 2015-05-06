@@ -27,6 +27,7 @@
       <h4>Reports</h4>
       <ul class="list-unstyled">
         <li><a href="reports/safety.php">Safety Records</a></li>
+        <li><a href="reports/ridership.php">Ridership Summary</a></li>
         <!-- TODO add the rest of the report links here -->
       </ul>
       
