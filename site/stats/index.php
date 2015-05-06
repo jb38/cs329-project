@@ -47,10 +47,10 @@
                 ?>
               
               </td>
-              <td>[link to show query?]</td>
+              <td><a href="">Show Query</a></td>
             </tr>
             <tr>
-              <td>Total Numnber of Drivers</td>
+              <td>Total Number of Drivers</td>
               <td>
               
                 <?php
@@ -66,7 +66,7 @@
                 ?>
               
               </td>
-              <td>[link to show query?]</td>
+              <td><a href="">Show Query</a></td>
             </tr>
             <tr>
               <td>Average Driver Experience</td>
@@ -74,18 +74,18 @@
               
                 <?php
                 
-                  $sql = "select avg( datediff( now(), hire_date ) ) as AverageExp from driver";
+                  $sql = "select ( avg( datediff( now(), hire_date ) ) ) / 365.25 as AverageExp from driver";
                   
                   $stmt = $pdo->query($sql);
     
                   while($row = $stmt->fetch()) {
-                      echo $row["AverageExp"];
+                      echo $row["AverageExp"] . " years";
                   }
                 
                 ?>
               
               </td>
-              <td>[link to show query?]</td>
+              <td><a href="">Show Query</a></td>
             </tr>
             <tr>
               <td>Total Number of Trips</td>
@@ -104,14 +104,8 @@
                 ?>
               
               </td>
-              <td>[link to show query?]</td>
+              <td><a href="">Show Query</a></td>
             </tr>
-            <tr>
-              <td>[stat name]</td>
-              <td>[result]</td>
-              <td>[link to show query?]</td>
-            </tr>
-            
           </tbody>
         </table>
         
