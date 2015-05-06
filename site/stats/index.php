@@ -47,7 +47,7 @@
                 ?>
               
               </td>
-              <td><a href="">Show Query</a></td>
+              <td><code>SELECT count(1) as TotalRiders FROM rider</code></td>
             </tr>
             <tr>
               <td>Total Number of Drivers</td>
@@ -66,7 +66,7 @@
                 ?>
               
               </td>
-              <td><a href="">Show Query</a></td>
+              <td><code>SELECT count(1) as TotalDrivers FROM driver</code></td>
             </tr>
             <tr>
               <td>Average Driver Experience</td>
@@ -85,7 +85,7 @@
                 ?>
               
               </td>
-              <td><a href="">Show Query</a></td>
+              <td><code>SELECT (avg(datediff(now(), hire_date))) / 365.25 as AverageExp FROM driver</code></td>
             </tr>
             <tr>
               <td>Total Number of Trips</td>
@@ -104,7 +104,26 @@
                 ?>
               
               </td>
-              <td><a href="">Show Query</a></td>
+              <td><code>SELECT count(1) as TotalTrips FROM trip</code></td>
+            </tr>
+            <tr>
+              <td>Average Trip Cost</td>
+              <td>
+              
+                <?php
+                
+                  $sql = "select avg(cost) as AverageCost from trip";
+                  
+                  $stmt = $pdo->query($sql);
+    
+                  while($row = $stmt->fetch()) {
+                      echo $row["AverageCost"];
+                  }
+                
+                ?>
+              
+              </td>
+              <td><code>SELECT avg(cost) as AverageCost FROM trip</code></td>
             </tr>
           </tbody>
         </table>
