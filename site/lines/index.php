@@ -45,13 +45,13 @@
             
             <?php
   
-              $sql = "select id, name, vehicle_type from line order by id";
+              $sql = "select l.id, l.name, l.vehicle_type, v.description from line l, vehicle_type v where l.vehicle_type = v.id order by l.id";
    
               $stmt = $pdo->query($sql);
   
               while($row = $stmt->fetch()) {
                 
-                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["name"]  . "</td><td>" . $row["vehicle_type"] . "</td><td>");
+                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["name"]  . "</td><td>" . $row["description"] . "</td><td>");
                 echo("<a href='edit.php?id=" . $row["id"] . "'>Edit</a>&nbsp;");
                 echo("<a href='delete.php?id=" . $row["id"] . "'>Delete</a>");
                 echo("</td></tr>\n");

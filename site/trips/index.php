@@ -49,13 +49,13 @@
             
             <?php
   
-              $sql = "select id, rider_id, entry_datetime, exit_datetime, entry_stop, exit_stop, cost from trip order by id";
+              $sql = "select t.id, t.rider_id, t.entry_datetime, t.exit_datetime, t.entry_stop, t.exit_stop, t.cost, r.name as rider_name, s.name as entry_stop_name, s.name as exit_stop_name from trip t, rider r, stop s where t.rider_id = r.id AND t.entry_stop = s.id AND t.exit_stop = s.id order by t.id";
    
               $stmt = $pdo->query($sql);
   
               while($row = $stmt->fetch()) {
                 
-                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["rider_id"]  . "</td><td>" . $row["entry_datetime"] . "</td><td>" . $row["exit_datetime"] . "</td><td>" . $row["entry_stop"] . "</td><td>" . $row["exit_stop"] . "</td><td>" . $row["cost"] . "</td><td>");
+                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["rider_name"]  . "</td><td>" . $row["entry_datetime"] . "</td><td>" . $row["exit_datetime"] . "</td><td>" . $row["entry_stop_name"] . "</td><td>" . $row["exit_stop_name"] . "</td><td>$" . $row["cost"] . "</td><td>");
                 echo("<a href='edit.php?id=" . $row["id"] . "'>Edit</a>&nbsp;");
                 echo("<a href='delete.php?id=" . $row["id"] . "'>Delete</a>");
                 echo("</td></tr>\n");
