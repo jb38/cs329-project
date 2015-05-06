@@ -36,7 +36,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Rider ID</th>
+              <th>Rider Name</th>
               <th>Entry Date and Time</th>
               <th>Exit Date and Time</th>
               <th>Entry Stop</th>
