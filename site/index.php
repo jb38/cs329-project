@@ -40,6 +40,11 @@
         <li><a href="riders">Manage Riders</a></li>
         <li><a href="trips">Manage Trips</a></li>
       </ul>
+
+      <h4>Database Statistics</h4>
+      <ul class="list-unstyled">
+        <li><a href="stats">Statistics</a></li>
+      </ul>
       
     </div>
     
