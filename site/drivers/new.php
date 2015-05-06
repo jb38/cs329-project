@@ -53,7 +53,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Hire Date</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="hire_date">
+              <input class="form-control" type="text" placeholder="YYYY-MM-DD" name="hire_date">
             </div>
           </div>
           

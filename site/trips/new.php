@@ -54,42 +54,84 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Rider ID</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="rider_id">
+              <select class="form-control" name="rider_id">
+                
+                <?php
+              
+                  $sql = "select id, name from rider order by name";
+       
+                  $stmt = $pdo->query($sql);
+      
+                  while($row = $stmt->fetch()) {
+                    echo("<option value='" . $row["id"] . "'>" . $row["name"] . "</option>"); 
+                  }
+                  
+                ?>
+                
+              </select>
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Entry Date and Time</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="entry_datetime">
+              <input class="form-control" type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="entry_datetime">
             </div>
           </div>
 		  
           <div class="form-group">
             <label class="col-sm-2 control-label">Exit Date and Time</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="exit_datetime">
+              <input class="form-control" type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="exit_datetime">
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Entry Stop</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="entry_stop">
+              <select class="form-control" name="entry_stop">
+                
+                <?php
+              
+                  $sql = "select id, name from stop order by name";
+       
+                  $stmt = $pdo->query($sql);
+      
+                  while($row = $stmt->fetch()) {
+                    echo("<option value='" . $row["id"] . "'>" . $row["name"] . "</option>"); 
+                  }
+                  
+                ?>
+                
+              </select>
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Exit Stop</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="exit_stop">
+              <select class="form-control" name="exit_stop">
+
+                <?php
+              
+                  $sql = "select id, name from stop order by name";
+       
+                  $stmt = $pdo->query($sql);
+      
+                  while($row = $stmt->fetch()) {
+                    echo("<option value='" . $row["id"] . "'>" . $row["name"] . "</option>"); 
+                  }
+                  
+                ?>
+                
+              </select>
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label">Cost</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="cost">
+              <input class="form-control" type="text" placeholder="#.##" name="cost">
             </div>
           </div>
           

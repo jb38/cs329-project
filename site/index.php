@@ -43,7 +43,7 @@
 
       <h4>Database Statistics</h4>
       <ul class="list-unstyled">
-        <li><a href="stats">Statistics</a></li>
+        <li><a href="stats">View Statistics</a></li>
       </ul>
       
     </div>

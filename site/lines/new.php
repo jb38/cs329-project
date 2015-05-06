@@ -53,7 +53,21 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Vehicle Type</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="vehicle_type">
+              <select class="form-control" name="vehicle_type">
+                
+                <?php
+              
+                  $sql = "select id, description from vehicle_type order by description";
+       
+                  $stmt = $pdo->query($sql);
+      
+                  while($row = $stmt->fetch()) {
+                    echo("<option value='" . $row["id"] . "'>" . $row["description"] . "</option>"); 
+                  }
+                  
+                ?>
+                
+              </select>
             </div>
           </div>
           
