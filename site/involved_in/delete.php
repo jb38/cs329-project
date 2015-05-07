@@ -49,7 +49,7 @@
             $vehicle_id = $_GET["vehicle_id"];
             $incident_id = $_GET["incident_id"];
             
-            $sql = "select vehicle_id, incident_id, at_fault from involved_in where vehicle_id = :vehicle_id and order by vehicle_id";
+            $sql = "select vehicle_id, incident_id, at_fault from involved_in where vehicle_id = :vehicle_id and incident_id = :incident_id order by vehicle_id";
  
             $stmt = $pdo->prepare($sql);
   	        $stmt->execute(array(":vehicle_id"  => $vehicle_id,
