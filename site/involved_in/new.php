@@ -91,8 +91,8 @@
             <label class="col-sm-2 control-label">At Fault</label>
             <div class="col-sm-4">
               <select class="form-control" name="at_fault">
-                <option value="TRUE">Yes</option>
-                <option value="FALSE">No</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
               </select>
             </div>
           </div>

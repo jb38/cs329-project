@@ -82,8 +82,8 @@
               <label class="col-sm-2 control-label">At Fault?</label>
               <div class="col-sm-4">
                 <select class="form-control" name="at_fault">
-                  <option value="TRUE" <?php echo($row["at_fault"] === "1" ? "selected" : "") ?>>Yes</option>
-                  <option value="FALSE" <?php echo($row["at_fault"] === "0" ? "selected" : "") ?>>No</option>
+                  <option value="1" <?php echo($row["at_fault"] === "1" ? "selected" : "") ?>>Yes</option>
+                  <option value="0" <?php echo($row["at_fault"] === "0" ? "selected" : "") ?>>No</option>
                 </select>
               </div>
             </div>
