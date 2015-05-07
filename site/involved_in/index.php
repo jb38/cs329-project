@@ -51,7 +51,7 @@
   
               while($row = $stmt->fetch()) {
                 
-                echo("<tr data-id='" . $row["vehicle_id"] . "'><td>" . $row["vehicle_id"] . "</td><td>" . $row["incident_id"] . "</td><td>" . $row["at_fault"]  . "</td><td>");
+                echo("<tr data-id='" . $row["vehicle_id"] . "'><td>" . $row["vehicle_id"] . "</td><td>" . $row["incident_id"] . "</td><td>" . ($row["at_fault"] === "1" ? "Yes" : "No")  . "</td><td>");
                 echo("<a href='edit.php?vehicle_id=" . $row["vehicle_id"] . "&incident_id=" . $row["incident_id"] . "'>Edit</a>&nbsp;");
                 echo("<a href='delete.php?vehicle_id=" . $row["vehicle_id"] . "&incident_id=" . $row["incident_id"] .  "'>Delete</a>");
                 echo("</td></tr>\n");
