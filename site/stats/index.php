@@ -128,24 +128,24 @@
             <tr>
               <td>Top Three Problem Drivers</td>
               <td>
-              
-                <?php
-                
-                  $sql = "select d.name as BadDriver, count(1) as NumAccidents from involved_in i 
-                          left join operates o on i.vehicle_id = o.vehicle_id
-                          left join driver d on o.driver_id = d.id
-                          group by d.name
-                          order by NumAccidents DESC
-                          limit 3";
+                <ul>
+                  <?php
                   
-                  $stmt = $pdo->query($sql);
-    
-                  while($row = $stmt->fetch()) {
-                      echo $row["BadDriver"] . " (" . $row["NumAccidents"] . ") ";
-                  }
-                
-                ?>
-              
+                    $sql = "select d.name as BadDriver, count(1) as NumAccidents from involved_in i 
+                            left join operates o on i.vehicle_id = o.vehicle_id
+                            left join driver d on o.driver_id = d.id
+                            group by d.name
+                            order by NumAccidents DESC
+                            limit 3";
+                    
+                    $stmt = $pdo->query($sql);
+      
+                    while($row = $stmt->fetch()) {
+                        echo "<li>" . $row["BadDriver"] . " (" . $row["NumAccidents"] . ")</li>";
+                    }
+                  
+                  ?>
+                </ul>
               </td>
               <td><code>SELECT d.name AS BadDriver, count(1) AS NumAccidents FROM involved_in i 
                         LEFT JOIN operates o ON i.vehicle_id = o.vehicle_id
