@@ -47,7 +47,11 @@
                 ?>
               
               </td>
-              <td><code>SELECT count(1) as TotalRiders FROM rider</code></td>
+              <td><pre>
+SELECT 
+  count(1) AS total_riders 
+FROM 
+  rider;</pre></td>
             </tr>
             <tr>
               <td>Total Number of Drivers</td>
@@ -66,7 +70,11 @@
                 ?>
               
               </td>
-              <td><code>SELECT count(1) as TotalDrivers FROM driver</code></td>
+              <td><pre>
+SELECT 
+  count(1) AS total_drivers 
+FROM
+  driver;</pre></td>
             </tr>
             <tr>
               <td>Average Driver Experience</td>
@@ -85,7 +93,11 @@
                 ?>
               
               </td>
-              <td><code>SELECT (avg(datediff(now(), hire_date))) / 365.25 as AverageExp FROM driver</code></td>
+              <td><pre>
+SELECT 
+  (avg(datediff(now(), hire_date))) / 365.25 AS avg_exp 
+FROM 
+  driver;</pre></td>
             </tr>
             <tr>
               <td>Total Number of Trips</td>
@@ -104,7 +116,11 @@
                 ?>
               
               </td>
-              <td><code>SELECT count(1) as TotalTrips FROM trip</code></td>
+              <td><pre>
+SELECT 
+  count(1) AS total_trips 
+FROM
+  trip;</pre></td>
             </tr>
             <tr>
               <td>Average Trip Cost</td>
@@ -123,7 +139,11 @@
                 ?>
               
               </td>
-              <td><code>SELECT avg(cost) as AverageCost FROM trip</code></td>
+              <td><pre>
+SELECT 
+  avg(cost) AS avg_cost 
+FROM 
+  trip;</pre></td>
             </tr>
             <tr>
               <td>Top Three Problem Drivers</td>
@@ -150,16 +170,15 @@
               <td>
                 <pre>
 SELECT 
-  d.name AS BadDriver
- ,count(1) AS NumAccidents 
+  d.name AS bad_driver
+ ,count(1) AS num_accidents 
 FROM 
   involved_in i 
-  LEFT JOIN operates o ON i.vehicle_id = o.vehicle_id
-  LEFT JOIN driver d ON o.driver_id = d.id
-GROUP BY BadDriver
-ORDER BY NumAccidents DESC
-LIMIT 3
-                </pre>
+  LEFT JOIN operates o ON (i.vehicle_id = o.vehicle_id)
+  LEFT JOIN driver d ON (o.driver_id = d.id)
+GROUP BY bad_driver
+ORDER BY num_accidents DESC
+LIMIT 3;</pre>
               </td>
             </tr>
           </tbody>
