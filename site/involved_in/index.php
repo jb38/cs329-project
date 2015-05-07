@@ -45,7 +45,7 @@
             
             <?php
   
-              $sql = "select vehicle_id, incident_id, at_fault from involved_in order by id";
+              $sql = "select vehicle_id, incident_id, at_fault from involved_in order by vehicle_id";
    
               $stmt = $pdo->query($sql);
   
