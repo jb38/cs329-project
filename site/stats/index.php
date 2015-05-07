@@ -147,12 +147,20 @@
                   ?>
                 </ul>
               </td>
-              <td><code>SELECT d.name AS BadDriver, count(1) AS NumAccidents FROM involved_in i 
-                        LEFT JOIN operates o ON i.vehicle_id = o.vehicle_id
-                        LEFT JOIN driver d ON o.driver_id = d.id
-                        GROUP BY BadDriver
-                        ORDER BY NumAccidents DESC
-                        LIMIT 3</code></td>
+              <td>
+                <pre>
+SELECT 
+  d.name AS BadDriver
+ ,count(1) AS NumAccidents 
+FROM 
+  involved_in i 
+  LEFT JOIN operates o ON i.vehicle_id = o.vehicle_id
+  LEFT JOIN driver d ON o.driver_id = d.id
+GROUP BY BadDriver
+ORDER BY NumAccidents DESC
+LIMIT 3
+                </pre>
+              </td>
             </tr>
           </tbody>
         </table>
