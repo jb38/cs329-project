@@ -24,13 +24,6 @@
         <!-- TODO add the rest of the action links here -->
       </ul>
       
-      <h4>Reports</h4>
-      <ul class="list-unstyled">
-        <li><a href="reports/safety.php">Safety Records</a></li>
-        <li><a href="reports/ridership.php">Ridership Summary</a></li>
-        <!-- TODO add the rest of the report links here -->
-      </ul>
-      
       <h4>Table Management</h4>
       <ul class="list-unstyled">
         <li><a href="drivers">Manage Drivers</a></li>
