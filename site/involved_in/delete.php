@@ -79,7 +79,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">At Fault?</label>
             <div class="col-sm-4">
-              <p class="form-control-static"><?php echo($row["at_fault"]); ?></p>
+              <p class="form-control-static"><?php echo($row["at_fault"] === 1 ? "Yes" : "No"); ?></p>
             </div>
           </div>
           
