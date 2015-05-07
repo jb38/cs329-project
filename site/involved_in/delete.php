@@ -52,7 +52,8 @@
             $sql = "select vehicle_id, incident_id, at_fault from involved_in where vehicle_id = :vehicle_id and order by vehicle_id";
  
             $stmt = $pdo->prepare($sql);
-  	        $stmt->execute(array(":driver_id" => $driver_id));
+  	        $stmt->execute(array(":vehicle_id"  => $vehicle_id,
+                                 ":incident_id" => $incident_id));
             
             $row = $stmt->fetch();
             
