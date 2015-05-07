@@ -38,9 +38,13 @@
         <li><a href="safety_incidents">Manage Safety Incidents</a></li>
         <li><a href="stops">Manage Stops</a></li>
         <li><a href="lines">Manage Lines</a></li>
-        <li><a href="line_stops">Manage Line Stops</a></li>
         <li><a href="riders">Manage Riders</a></li>
         <li><a href="trips">Manage Trips</a></li>
+      </ul>
+
+      <h4>Database Statistics</h4>
+      <ul class="list-unstyled">
+        <li><a href="stats">View Statistics</a></li>
       </ul>
       
     </div>

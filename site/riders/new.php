@@ -7,13 +7,11 @@
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $name = $_POST["name"];
-    $hire_date = $_POST["hire_date"];
     
-    $sql = "insert into vehicle (name, hire_date) values (:name, :hire_date)";
+    $sql = "insert into rider (name) values (:name)";
    
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(":name"      => $name, 
-                         ":hire_date" => $hire_date));
+    $stmt->execute(array(":name" => $name));
     
     header("Location: index.php");
   }
@@ -39,7 +37,7 @@
     <div class="container">
       <div class="col-sm-12">
       
-        <h1>New Driver</h1>
+        <h1>Riders</h1>
         
         <form class="form form-horizontal" method="POST" action="new.php">
           	
@@ -47,13 +45,6 @@
             <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-4">
               <input class="form-control" type="text" name="name">
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Hire Date</label>
-            <div class="col-sm-4">
-              <input class="form-control" type="text" placeholder="YYYY-MM-DD" name="hire_date">
             </div>
           </div>
           

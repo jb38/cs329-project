@@ -48,7 +48,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Date/Time</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="datetime">
+              <input class="form-control" type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="datetime">
             </div>
           </div>
           

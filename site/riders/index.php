@@ -26,7 +26,7 @@
     <div class="container">
       <div class="col-sm-12">
       
-        <h1>Lines</h1>
+        <h1>Riders</h1>
         
         <div class="text-right">
           <a class="btn btn-primary" href="new.php">New</a>
@@ -37,7 +37,6 @@
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Vehicle Type</th>
               <th></th>
             </tr>
           </thead>
@@ -45,13 +44,13 @@
             
             <?php
   
-              $sql = "select l.id, l.name, l.vehicle_type, v.description from line l, vehicle_type v where l.vehicle_type = v.id order by l.id";
+              $sql = "select id, name from rider order by id";
    
               $stmt = $pdo->query($sql);
   
               while($row = $stmt->fetch()) {
                 
-                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["name"]  . "</td><td>" . $row["description"] . "</td><td>");
+                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["name"]  . "</td><td>");
                 echo("<a href='edit.php?id=" . $row["id"] . "'>Edit</a>&nbsp;");
                 echo("<a href='delete.php?id=" . $row["id"] . "'>Delete</a>");
                 echo("</td></tr>\n");

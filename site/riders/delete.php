@@ -6,17 +6,16 @@
   
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    $name = $_POST["name"];
-    $hire_date = $_POST["hire_date"];
+    $id = $_POST["id"];
     
-    $sql = "insert into vehicle (name, hire_date) values (:name, :hire_date)";
-   
+    $sql = "delete from rider where id = :id";
+  
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(":name"      => $name, 
-                         ":hire_date" => $hire_date));
+    $stmt->execute(array(":id" => $id));
     
-    header("Location: index.php");
+    header("Location: index.php");  
   }
+  
 ?>
 
 <!DOCTYPE html>
@@ -38,34 +37,49 @@
     
     <div class="container">
       <div class="col-sm-12">
-      
-        <h1>New Driver</h1>
         
-        <form class="form form-horizontal" method="POST" action="new.php">
+        <h1>Delete Rider</h1>
+        
+        <form class="form form-horizontal" method="POST" action="delete.php">
+          
+          <?php
+            
+            $id = $_GET["id"];
+            
+            $sql = "select id, name from rider where id = :id";
+ 
+            $stmt = $pdo->prepare($sql);
+  	        $stmt->execute(array(":id" => $id));
+            
+            $row = $stmt->fetch();
+            
+          ?>
           	
+          <input type="hidden" name="id" value="<?php echo($row["id"]); ?>">
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label">ID</label>
+            <div class="col-sm-4">
+              <p class="form-control-static"><?php echo($row["id"]); ?></p>
+            </div>
+          </div>
+          
           <div class="form-group">
             <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-4">
-              <input class="form-control" type="text" name="name">
+              <p class="form-control-static"><?php echo($row["name"]); ?></p>
             </div>
           </div>
           
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Hire Date</label>
-            <div class="col-sm-4">
-              <input class="form-control" type="text" placeholder="YYYY-MM-DD" name="hire_date">
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <div class="col-sm-6 text-right">
-              <button class="btn btn-primary">Create</button>
+          <div class="form-group text-right">
+            <div class="col-sm-6">
+              <button class="btn btn-danger">Delete</button>
               <a class="btn btn-link" href="index.php">Cancel</a>
             </div>
           </div>
-        	
+            	
         </form>
-        
+      
       </div>
     </div>
     

@@ -26,7 +26,7 @@
     <div class="container">
       <div class="col-sm-12">
       
-        <h1>Lines</h1>
+        <h1>Trips</h1>
         
         <div class="text-right">
           <a class="btn btn-primary" href="new.php">New</a>
@@ -36,8 +36,12 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Vehicle Type</th>
+              <th>Rider Name</th>
+              <th>Entry Date and Time</th>
+              <th>Exit Date and Time</th>
+              <th>Entry Stop</th>
+              <th>Exit Stop</th>
+              <th>Cost</th>
               <th></th>
             </tr>
           </thead>
@@ -45,13 +49,13 @@
             
             <?php
   
-              $sql = "select l.id, l.name, l.vehicle_type, v.description from line l, vehicle_type v where l.vehicle_type = v.id order by l.id";
+              $sql = "select t.id, t.rider_id, t.entry_datetime, t.exit_datetime, t.entry_stop, t.exit_stop, t.cost, r.name as rider_name, fs.name as entry_stop_name, ls.name as exit_stop_name from trip t join rider r on t.rider_id = r.id join stop fs on t.entry_stop = fs.id join stop ls on t.exit_stop = ls.id order by t.id";
    
               $stmt = $pdo->query($sql);
   
               while($row = $stmt->fetch()) {
                 
-                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["name"]  . "</td><td>" . $row["description"] . "</td><td>");
+                echo("<tr data-id='" . $row["id"] . "'><td>" . $row["id"] . "</td><td>" . $row["rider_name"]  . "</td><td>" . $row["entry_datetime"] . "</td><td>" . $row["exit_datetime"] . "</td><td>" . $row["entry_stop_name"] . "</td><td>" . $row["exit_stop_name"] . "</td><td>$" . $row["cost"] . "</td><td>");
                 echo("<a href='edit.php?id=" . $row["id"] . "'>Edit</a>&nbsp;");
                 echo("<a href='delete.php?id=" . $row["id"] . "'>Delete</a>");
                 echo("</td></tr>\n");
