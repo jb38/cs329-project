@@ -29,6 +29,7 @@
         <li><a href="drivers">Manage Drivers</a></li>
         <li><a href="vehicles">Manage Vehicles</a></li>
         <li><a href="safety_incidents">Manage Safety Incidents</a></li>
+        <li><a href="involved_in">Manage Safety Incident Involvements</a></li>
         <li><a href="stops">Manage Stops</a></li>
         <li><a href="lines">Manage Lines</a></li>
         <li><a href="riders">Manage Riders</a></li>
