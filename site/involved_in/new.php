@@ -52,12 +52,12 @@
                 
                 <?php
               
-                  $sql = "select id from vehicle order by id";
+                  $sql = "select v.id, description from vehicle v, vehicle_type t where v.type = t.id order by id";
        
                   $stmt = $pdo->query($sql);
       
                   while($row = $stmt->fetch()) {
-                    echo("<option value='" . $row["id"] . "'>" . $row["id"] . "</option>"); 
+                    echo("<option value='" . $row["id"] . "'>" . $row["description"] . "(". $row["id"] . ")</option>"); 
                   }
                   
                 ?>
