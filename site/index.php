@@ -17,12 +17,13 @@
     
     <div class="container">
       
+      <!--
       <h4>Actions</h4>
       <ul class="list-unstyled">
         <li><a href="actions/assign_vehicle.php">Assign Vehicle to Driver</a></li>
         <li><a href="actions/safety_incident.php">Log Safety Incident</a></li>
-        <!-- TODO add the rest of the action links here -->
       </ul>
+      -->
       
       <h4>Table Management</h4>
       <ul class="list-unstyled">
