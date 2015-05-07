@@ -128,7 +128,7 @@
             <tr>
               <td>Top Three Problem Drivers</td>
               <td>
-                <ul>
+                <ul class="list-unstyled">
                   <?php
                   
                     $sql = "select d.name as BadDriver, count(1) as NumAccidents from involved_in i 
