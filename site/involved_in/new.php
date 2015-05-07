@@ -46,13 +46,13 @@
         <form class="form form-horizontal" method="POST" action="new.php">
           	
           <div class="form-group">
-            <label class="col-sm-2 control-label">Type</label>
+            <label class="col-sm-2 control-label">Vehicle ID</label>
             <div class="col-sm-4">
               <select class="form-control" name="vehicle_id">
                 
                 <?php
               
-                  $sql = "select id vehicle order by id";
+                  $sql = "select id from vehicle order by id";
        
                   $stmt = $pdo->query($sql);
       
@@ -67,13 +67,13 @@
           </div>
           
           <div class="form-group">
-            <label class="col-sm-2 control-label">Type</label>
+            <label class="col-sm-2 control-label">Incident ID</label>
             <div class="col-sm-4">
               <select class="form-control" name="incident_id">
                 
                 <?php
               
-                  $sql = "select id, datetime safety_incident order by id";
+                  $sql = "select id, datetime from safety_incident order by id";
        
                   $stmt = $pdo->query($sql);
       
@@ -88,7 +88,7 @@
           </div>
           
           <div class="form-group">
-            <label class="col-sm-2 control-label">Type</label>
+            <label class="col-sm-2 control-label">At Fault</label>
             <div class="col-sm-4">
               <select class="form-control" name="at_fault">
                 <option value="TRUE">Yes</option>
